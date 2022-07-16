@@ -1,0 +1,51 @@
+.farePage {
+    height: 100vh;
+    position: relative;
+}
+
+.imagebg {
+    /* background-image: url(../Assets/city.jpg);  */
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.imgCover {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.645);
+}
+
+.mainDivFare {
+    width: 55vw;
+    height: 70vh;
+    position: absolute;
+    background-color: #03fe85;
+    margin-top: 5vh;
+    border-radius: 4rem;
+    /* border:1rem solid white; */
+    left: 50%;
+    transform: translateX(-50%);
+    /* top: 1vh; */
+}
+
+.DivSecondFare {
+    width: 45vw;
+    height: 55vh;
+    position: absolute;
+    background-color: white;
+    border-radius: 3rem;
+    /* border:1rem solid white; */
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+
+
+

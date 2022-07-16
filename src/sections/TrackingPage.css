@@ -1,0 +1,93 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.locInput {
+    width: 16rem;
+    height: 2.5rem;
+    padding: 0.5rem;
+    border: 1px solid rgba(23, 23, 255, 0.305);
+    border-radius: 0.5rem;
+    display: flex;
+    background-color: white;
+    margin: 0 0.5rem;
+    outline: 2px dotted rgba(0, 255, 251, 0);
+    outline-offset: 2px;
+    transition-duration: 200ms;
+    box-shadow: 0px 3px 4px #888888;
+}
+.locInput:focus {
+    z-index: 3;
+    border: 3px solid #03fe85 ;
+}
+
+
+.CalcBtn {
+    margin: 1.5rem 0.5rem 0 0.5rem;
+    border: 1px solid transparent;
+    border-radius: 0.5rem;
+    background-color: #03fe85;
+    color: white;
+    padding: 0rem 1rem 0 1rem;
+    font-weight: 600;
+    text-align: center;
+    box-shadow: 0px 3px 4px #888888;
+    display: flex;
+    /* width: 9rem; */
+    height: 2.5rem;
+}
+.CalcBtn:hover{
+    background-color: #00c063;
+}
+
+.mainDiv {
+    background-color: white;
+    border: 1px solid slategray;
+    border-radius: 1rem;
+    width: max-content;
+    height: max-content;
+    margin: 10vh 10vw auto 0vw;
+    padding-top:0.4rem;
+    position: relative;
+}
+.firstChild{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: max-content;
+    /* border: 1px solid black; */
+    padding: 0.5rem;
+}
+.secondChild{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width:auto;
+    /* height: max-content; */
+    /* border: 1px solid black; */
+    padding: 0.5rem;
+}
+.textClass{
+    padding: 0.3rem 1rem 0 1rem;
+}
+
+.goBtn {
+    border: 1px solid transparent;
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    background-color: #03fe85;
+    padding: 0.5rem;
+    width: 2.5rem;
+    box-shadow: 0px 4px 4px #888888;
+    height: 2.5rem;
+    margin-right: 0.5rem;
+    margin-top: 1.5rem;
+    margin-left: 0.5rem;
+}
+.goBtn:hover{
+    background-color: #00c063;
+}

@@ -1,0 +1,37 @@
+
+.footer{
+    height: 37vh;
+    background-color: #03fe86;
+    color: white;
+}
+
+.FooterIcons{
+    text-decoration: none;
+    color: white;
+    padding: 0.5rem 0.8rem;
+    background: transparent;
+    border-radius: 50%;
+    font-size: 1.5rem;
+}
+
+.FooterIcons:hover{
+    color: #03fe86;
+    background-color: white;
+}
+
+.up1{
+    transform: translateY(-10px);
+}
+.up2{
+    transform: translateY(-2px);
+}
+.button{
+    text-decoration: none;
+    color: white;
+}
+.button:hover{
+    text-decoration: none;
+    color: #03fe86;
+    background-color: white;
+    border-radius: 1rem;
+}
