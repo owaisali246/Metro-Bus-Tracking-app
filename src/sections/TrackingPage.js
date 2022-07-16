@@ -12,7 +12,7 @@ export default function TrackingPage() {
 
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
-    googleMapsApiKey: "AIzaSyAjW58mqM8jUeslmyJvfLWjYNarqDWzaCs",
+    googleMapsApiKey: "",
     // libraries: ['places']
   })
 
