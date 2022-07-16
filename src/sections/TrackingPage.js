@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import './TrackingPage.css'
 import { useJsApiLoader, GoogleMap, Marker, DirectionsRenderer } from '@react-google-maps/api'
 import { FaLocationArrow } from 'react-icons/fa'
+import { stopsCollection, stopsList } from './components/BusStops'
 
 export default function TrackingPage() {
   const [map, setMap] = useState(/** @type google.maps.Map */(null))
@@ -9,10 +10,13 @@ export default function TrackingPage() {
   const [distance, setDistance] = useState('')
   const [duration, setDuration] = useState('')
   const [mrks, setmrks] = useState(false)
+  const [origin, setOrigin] = useState('Surjani Town');
+  const [destination, setDestination] = useState('Surjani Town');
+
 
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
-    googleMapsApiKey: "AIzaSyAjW58mqM8jUeslmyJvfLWjYNarqDWzaCs",
+    googleMapsApiKey: "",
     // libraries: ['places']
   })
 
@@ -25,27 +29,6 @@ export default function TrackingPage() {
     return setMap(map);
   }
 
-  const stopsList = ['Surjani Town', '4K Chowrangi', 'PowerHouse Chowrangi', 'U.P. More', 'Nagan Chowrangi', 'Sakhi Hassan Chowrangi', '5-Star Chowrangi', 'KDA Chowrangi', 'Board Office Stop', 'Nazimabad 7 Number Stop', 'Nazimabad Petrol Pump Stop', 'Golimar Chowrangi', 'Gulbahar Stop', 'Lasbela Chowk', 'Guru Mandir Chowrangi', 'Numiash Chowrangi']
-
-  const stopsCollection = [
-    { name: 'Surjani Town', coord: { lat: 25.0251, lng: 67.0631 } },
-    { name: '4K Chowrangi', coord: { lat: 25.0061, lng: 67.064159 } },
-    { name: 'PowerHouse Chowrangi', coord: { lat: 24.9844, lng: 67.0661 } },
-    { name: 'U.P. More', coord: { lat: 24.9728, lng: 67.0667 } },
-    { name: 'Nagan Chowrangi', coord: { lat: 24.9660, lng: 67.0673 } },
-    { name: 'Sakhi Hassan Chowrangi', coord: { lat: 24.9540, lng: 67.0575 } },
-    { name: '5-Star Chowrangi', coord: { lat: 24.9424, lng: 67.0470 } },
-    { name: 'KDA Chowrangi', coord: { lat: 24.9314, lng: 67.0369 } },
-    { name: 'Board Office Stop', coord: { lat: 24.9247, lng: 67.0317 } },
-    { name: 'Nazimabad 7 Number Stop', coord: { lat: 24.9185, lng: 67.0311 } },
-    { name: 'Nazimabad Petrol Pump Stop', coord: { lat: 24.9107, lng: 67.03108 } },
-    { name: 'Golimar Chowrangi', coord: { lat: 24.9013, lng: 67.0301 } },
-    { name: 'Gulbahar Stop', coord: { lat: 24.8958, lng: 67.0304 } },
-    { name: 'Lasbela Chowk', coord: { lat: 24.8873, lng: 67.0329 } },
-    { name: 'Guru Mandir Chowrangi', coord: { lat: 24.8805, lng: 67.0388 } },
-    { name: 'Numiash Chowrangi', coord: { lat: 24.8723, lng: 67.0352 } }
-  ]
-
 
   const stopsMarkers = stopsCollection.map((stop) =>
     <Marker key={stop.name} position={stop.coord} title={stop.name} label={{ text: stop.name, color: 'black', fontWeight: '600' }} />
@@ -56,28 +39,28 @@ export default function TrackingPage() {
     <option key={element} value={element} >{element}</option>
   )
 
-  const [value1, setValue1] = useState('Surjani Town');
-  const [value2, setValue2] = useState('Surjani Town');
+
 
 
   const handleChange1 = (e) => {
     e.preventDefault();
     setDistance('')
     setDuration('')
-    setValue1(e.target.value);
+    setOrigin(e.target.value);
   };
 
   const handleChange2 = (e) => {
     e.preventDefault();
     setDistance('')
     setDuration('')
-    setValue2(e.target.value);
+    setDestination(e.target.value);
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
     directionOnMap()
   }
+
 
 
 
@@ -88,9 +71,10 @@ export default function TrackingPage() {
   async function directionOnMap() {
     // eslint-disable-next-line no-undef 
     const direction = new google.maps.DirectionsService();
+
     const result = await direction.route({
-      origin: (stopsCollection[stopsList.indexOf(value1)].coord),
-      destination: (stopsCollection[stopsList.indexOf(value2)].coord),
+      origin: ((stopsList.indexOf(origin) < stopsList.indexOf(destination)) ? stopsCollection[stopsList.indexOf(destination)].coord : stopsCollection[stopsList.indexOf(origin)].coord),
+      destination: ((stopsList.indexOf(origin) > stopsList.indexOf(destination)) ? stopsCollection[stopsList.indexOf(destination)].coord : stopsCollection[stopsList.indexOf(origin)].coord),
       // eslint-disable-next-line no-undef 
       travelMode: google.maps.TravelMode.DRIVING
 
@@ -136,7 +120,7 @@ export default function TrackingPage() {
                   {individualitems}
                 </select>
                 <div style={{ width: '10rem', display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly' }}>
-                  <input className='CalcBtn' type="submit" style={{paddingLeft:'2rem',paddingRight:'2rem'}} />
+                  <input className='CalcBtn' value='See Route' type="submit" style={{ paddingLeft: '2rem', paddingRight: '2rem' }} />
                 </div>
               </form>
               <div style={{ width: '15rem', display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly' }}>
