@@ -18,9 +18,10 @@
     transition-duration: 200ms;
     box-shadow: 0px 3px 4px #888888;
 }
+
 .locInput:focus {
     z-index: 3;
-    border: 3px solid #03fe85 ;
+    border: 3px solid #03fe85;
 }
 
 
@@ -38,8 +39,39 @@
     /* width: 9rem; */
     height: 2.5rem;
 }
-.CalcBtn:hover{
+
+.CalcBtn:hover {
     background-color: #00c063;
+}
+
+.btnColor-1 {
+    --stopsColor: #03fe85;
+    --hover_stopsColor: #00c063;
+}
+
+.btnColor-2 {
+    --stopsColor: #fe0303;
+    --hover_stopsColor: #c00000;
+}
+
+.stopsBtn {
+
+    margin: 1.5rem 0.5rem 0 0.5rem;
+    border: 1px solid transparent;
+    border-radius: 0.5rem;
+    background-color: var(--stopsColor);
+    color: white;
+    padding: 0rem 1rem 0 1rem;
+    font-weight: 600;
+    text-align: center;
+    box-shadow: 0px 3px 4px #888888;
+    display: flex;
+    /* width: 9rem; */
+    height: 2.5rem;
+}
+
+.stopsBtn:hover {
+    background-color: var(--hover_stopsColor);
 }
 
 .mainDiv {
@@ -49,10 +81,11 @@
     width: max-content;
     height: max-content;
     margin: 10vh 10vw auto 0vw;
-    padding-top:0.4rem;
+    padding-top: 0.4rem;
     position: relative;
 }
-.firstChild{
+
+.firstChild {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -60,17 +93,19 @@
     /* border: 1px solid black; */
     padding: 0.5rem;
 }
-.secondChild{
+
+.secondChild {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    width:auto;
+    width: auto;
     /* height: max-content; */
     /* border: 1px solid black; */
     padding: 0.5rem;
 }
-.textClass{
+
+.textClass {
     padding: 0.3rem 1rem 0 1rem;
 }
 
@@ -82,12 +117,20 @@
     background-color: #03fe85;
     padding: 0.5rem;
     width: 2.5rem;
-    box-shadow: 0px 4px 4px #888888;
     height: 2.5rem;
+    box-shadow: 0px 4px 4px #888888;
     margin-right: 0.5rem;
     margin-top: 1.5rem;
     margin-left: 0.5rem;
 }
-.goBtn:hover{
+
+.goBtn:hover {
     background-color: #00c063;
+}
+
+.markerLabel {
+    position: relative;
+    transform: translateY(-1.1rem);
+    -webkit-text-stroke: 0.7px black;
+    text-shadow: 0px 0px 10px white;
 }

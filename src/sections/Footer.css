@@ -1,11 +1,11 @@
-
-.footer{
+.footer {
     height: 37vh;
     background-color: #03fe86;
     color: white;
+    position: relative;
 }
 
-.FooterIcons{
+.FooterIcons {
     text-decoration: none;
     color: white;
     padding: 0.5rem 0.8rem;
@@ -14,22 +14,25 @@
     font-size: 1.5rem;
 }
 
-.FooterIcons:hover{
+.FooterIcons:hover {
     color: #03fe86;
     background-color: white;
 }
 
-.up1{
+.up1 {
     transform: translateY(-10px);
 }
-.up2{
+
+.up2 {
     transform: translateY(-2px);
 }
-.button{
+
+.button {
     text-decoration: none;
     color: white;
 }
-.button:hover{
+
+.button:hover {
     text-decoration: none;
     color: #03fe86;
     background-color: white;

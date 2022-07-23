@@ -22,6 +22,14 @@ export const stopsCollection = [
 ]
 export default function BusStops() {
 
+  // const [array, setArray] = React.useState([])
+
+  // function fet() {
+  //   fetch('https://jsonplaceholder.typicode.com/todos/1')
+  //     .then(response => response.json())
+  //     .then(json => setArray(json))
+  // }
+
   return (
     <div>
 

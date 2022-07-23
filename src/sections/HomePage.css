@@ -19,7 +19,7 @@
     left: 50vw;
     top: 35vh;
     z-index: 1;
-    animation: busAnim 4s 20ms;
+    animation: busAnim 4s 200ms 5;
 }
 
 @keyframes busAnim {
@@ -36,7 +36,7 @@
     }
 }
 
-h1 {
+.heading {
     position: relative;
     color: rgb(5, 5, 5);
     margin-top: 1rem;
@@ -45,7 +45,7 @@ h1 {
     font-size: 3.1rem;
     -webkit-text-stroke: 2.5px rgba(0, 0, 0, 0.227);
     white-space: nowrap;
-    animation: animate 5s 1s linear;
+    animation: animate 5s 1s linear 5;
     overflow: hidden;
     /* border-right: 0px solid rgb(0, 0, 0); */
 }

@@ -1,6 +1,6 @@
-.nav{
+.nav {
     width: max-content;
-    left:50%;
+    left: 50%;
     z-index: 2;
     border-radius: 3rem;
     position: fixed;
@@ -10,35 +10,37 @@
     transition: background 200ms ease-out;
 }
 
-.nav-color-2{
-    --color1 :white; 
-    --color2 :#03fe85; 
+.nav-color-2 {
+    --color1: white;
+    --color2: #03fe85;
     background-color: #03fe85ca;
     color: white;
 }
-.nav-color-1{
-    --color1 :#03fe85; 
-    --color2 :white; 
+
+.nav-color-1 {
+    --color1: #03fe85;
+    --color2: white;
     background-color: white;
     color: #03fe85;
 }
 
 
-.navIcons{
+.navIcons {
     text-decoration: none;
     color: inherit;
     padding: 0.2rem 0.8rem;
-    margin: 0.3rem 0.7rem;
+    margin: 0.3rem 0.4rem;
     background: transparent;
     border-radius: 2rem;
 }
-.navIcons:hover{
+
+.navIcons:hover {
     color: var(--color2);
     background-color: var(--color1);
     transform: scale(0.8rem);
 }
 
-.icons{
+.icons {
     margin: 0.5rem 0.5rem 0.5rem 0.2rem;
     font-size: 1.5rem;
 }
