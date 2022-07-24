@@ -1,7 +1,7 @@
 import React from 'react'
 import './HomePage.css'
 import imageBg from '../Assets/Home-Page.png'
-import imageBus from '../Assets/Bus.png'
+import imageBus from '../Assets/Bus1.png'
 // import gif from '../Assets/gif.gif'
 
 
