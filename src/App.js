@@ -12,7 +12,7 @@ function App() {
     <div >
       <HomePage />
       <Navbar />
-      {/* <TrackingPage /> */}
+      <TrackingPage />
       <FarePage />
       <Anouncements />
       <Footer />
