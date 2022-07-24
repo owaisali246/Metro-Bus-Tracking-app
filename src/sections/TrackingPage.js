@@ -63,7 +63,7 @@ export default function TrackingPage() {
   const showBusMarkers = BusCoords?.map((bus) => {
     if (parseInt(bus.latitude) !== 0) {
       return (
-        <Marker animation={2} icon='https://github.com/owaisali246/Metro-Bus-Tracking-app/blob/main/src/Assets/bus.png?raw=true' key={bus.driver_id} position={{ lat: parseFloat(bus.latitude), lng: parseFloat(bus.longitude) }} />
+        <Marker animation={2} icon='https://github.com/owaisali246/Metro-Bus-Tracking-app/blob/main/src/Assets/busMarker1.png?raw=true' key={bus.driver_id} position={{ lat: parseFloat(bus.latitude), lng: parseFloat(bus.longitude) }} />
       )
     }
   })
