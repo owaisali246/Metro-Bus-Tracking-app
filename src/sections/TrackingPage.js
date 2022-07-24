@@ -53,7 +53,8 @@ export default function TrackingPage() {
 
   const get_coords = () => {
 
-    fetch('http://localhost/php_program/get_coords.php')
+    // fetch('http://localhost/php_program/get_coords.php')
+    fetch('https://rapidtracking.000webhostapp.com/get_coords.php')
       .then(Response => Response.json())
       .then(json => setBusCoords(json))
     // console.log(BusCoords);

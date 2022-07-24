@@ -8,7 +8,8 @@ function Anouncements() {
     const [anouncements, setAnouncements] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost/php_program/react-file.php')
+        fetch('https://rapidtracking.000webhostapp.com/react-file.php')
+            // fetch('http://localhost/php_program/react-file.php')
             .then(Response => Response.json())
             .then(json => setAnouncements(json))
 
