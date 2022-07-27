@@ -1,3 +1,4 @@
+import React from "react";
 import './App.css';
 import Navbar from './sections/Navbar/Navbar';
 import HomePage from './sections/HomePage/HomePage.js'
@@ -12,11 +13,9 @@ import { Routes, Route } from "react-router-dom";
 
 
 function App() {
+
   return (
     <div >
-
-
-
       <Routes>
         <Route path='/' element={
           <>
@@ -27,24 +26,19 @@ function App() {
             <Anouncements />
             <Footer />
           </>} />
-      </Routes>
-      <Routes>
-        <Route path='/Login' element={
+        <Route exact path='/Login' element={
           <>
             <NewNav />
             <Login />
           </>
         } />
-      </Routes>
-      <Routes>
-        <Route path='/SignUp' element={
+        <Route exact path='/SignUp' element={
           <>
             <NewNav />
             <SignUp />
           </>
         } />
       </Routes>
-
     </div>
   );
 }

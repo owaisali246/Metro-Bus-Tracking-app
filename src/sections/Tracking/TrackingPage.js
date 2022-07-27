@@ -182,11 +182,11 @@ export default function TrackingPage() {
           <div data-aos="flip-right" data-aos-duration="1500" className='mainDiv' >
             <div className='firstChild'>
               <form style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }} onSubmit={handleSubmit}>
-                <select defaultValue='Numaish Chowrangi' id='locations1' onChange={handleChange1} name="locations1" className='locInput'>
+                <select style={{ color: 'black', fontWeight: 'bold' }} defaultValue='Numaish Chowrangi' id='locations1' onChange={handleChange1} name="locations1" className='locInput'>
                   {individualitems}
                 </select>
                 <h3 style={{ padding: '0.8rem 0.5rem 0 0.5rem', fontSize: '1.5rem' }}> <b>to</b> </h3>
-                <select id='locations2' onChange={handleChange2} name="locations2" className='locInput'>
+                <select style={{ color: 'black', fontWeight: 'bold' }} id='locations2' onChange={handleChange2} name="locations2" className='locInput'>
                   {individualitems}
                 </select>
                 <div style={{ width: '10rem', display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly' }}>

@@ -85,17 +85,19 @@ export default function FarePage() {
         <h1 className='fareHeading' data-aos="fade-down" data-aos-duration="1500" >Calculate Fare</h1>
         <div className='mainDivFare ' data-aos="flip-left" data-aos-duration="1500" >
           <div className='DivSecondFare'>
-            <form style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '3rem' }} onSubmit={handleSubmit}>
-              <select defaultValue='Numaish Chowrangi' id='locations1' onChange={handleChange1} name="locations1" className='locInput'>
-                {individualitems}
-              </select>
-              <h3 style={{ padding: '0.8rem 0.5rem 0 0.5rem', fontSize: '1.5rem' }}> <b>to</b> </h3>
-              <select id='locations2' onChange={handleChange2} name="locations2" className='locInput'>
-                {individualitems}
-              </select>
-              <button title='Press to Calculate Fare' className='CalcBtn' onClick={CalculateFare} style={{ padding: '0.5rem 2rem', marginTop: '1.5rem' }}>Calculate Fare</button>
-              <h3 style={{ textAlign: 'center', padding: '1.8rem 0.5rem 0.5rem 1.5rem', marginBottom: '1rem', fontSize: '1.2rem' }}> <b>The Fare from <span style={{ color: '#03fe85' }}>{value1}</span> to <span style={{ color: '#03fe85' }}>{value2}</span> is <span style={{ color: '#03fe85' }}>{(change === true) ? `Rs. ${fare}` : ''}</span></b> </h3>
-            </form>
+            <div style={{}}>
+              <form style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '3rem' }} onSubmit={handleSubmit}>
+                <select style={{ color: 'black', fontWeight: 'bold' }} defaultValue='Numaish Chowrangi' id='locations1' onChange={handleChange1} name="locations1" className='locInput'>
+                  {individualitems}
+                </select>
+                <h3 style={{ padding: '0.8rem 0.5rem 0 0.5rem', fontSize: '1.5rem' }}> <b>to</b> </h3>
+                <select style={{ color: 'black', fontWeight: 'bold' }} id='locations2' onChange={handleChange2} name="locations2" className='locInput'>
+                  {individualitems}
+                </select>
+                <button title='Press to Calculate Fare' className='CalcBtn' onClick={CalculateFare} style={{ padding: '0.5rem 2rem', marginTop: '1.5rem' }}>Calculate Fare</button>
+                <h3 style={{ textAlign: 'center', padding: '1.8rem 0.5rem 0.5rem 1.5rem', marginBottom: '1rem', fontSize: '1.2rem' }}> <b>The Fare from <span style={{ color: '#03fe85' }}>{value1}</span> to <span style={{ color: '#03fe85' }}>{value2}</span> is <span style={{ color: '#03fe85' }}>{(change === true) ? `Rs. ${fare}` : ''}</span></b> </h3>
+              </form>
+            </div>
           </div>
         </div>
       </div>

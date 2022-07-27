@@ -1,6 +1,6 @@
 #SignupDiv {
     background-color: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(4px);
+    backdrop-filter: blur(6px);
     width: 60vw;
     height: 70vh;
     border-radius: 4rem;
@@ -14,13 +14,6 @@
     left: 50%;
     transform: translate(-50%, -50%);
     color: #ffffff;
-    /* animation: box-anim 5s infinite */
-}
-
-@keyframes box-anim {
-    50% {
-        box-shadow: 0 0vh 3vh 2px rgba(255, 255, 255, 0.4);
-    }
 }
 
 #SignupDiv2 {
@@ -38,7 +31,6 @@
 
 #userimg:hover {
     animation: img-anim 1s infinite;
-    /* animation: img-anim 1s; */
 }
 
 @keyframes img-anim {

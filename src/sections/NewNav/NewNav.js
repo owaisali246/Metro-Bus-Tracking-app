@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 export default function Navbar() {
 
     return (
-        <div id='Navbar' className={`nav nav-color-1`}>
+        <div id='Navbar' className={`nav nav-color-2`}>
             <Link className='navIcons' to="/"><AiFillHome className='icons' />Home</Link>
             <Link className='navIcons' to="/Login"><FaUserCircle className='icons' />Login/SignUp</Link>
         </div>
