@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './FarePage.css'
-import imagebg from '../Assets/city.jpg'
+import imagebg from '../../Assets/city.jpg'
 
 export default function FarePage() {
 

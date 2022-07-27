@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import './TrackingPage.css'
 import { useJsApiLoader, GoogleMap, Marker, DirectionsRenderer } from '@react-google-maps/api'
 import { FaLocationArrow } from 'react-icons/fa'
-import { stopsCollection, stopsList } from './components/BusStops'
+import { stopsCollection, stopsList } from '../components/BusStops'
 
 
 export default function TrackingPage() {
@@ -21,7 +21,7 @@ export default function TrackingPage() {
   const [BusCoords, setBusCoords] = useState([])
 
   useEffect(() => {
-    setInterval(get_coords, 5000)
+    setInterval(get_coords, 3000)
     // eslint-disable-next-line
   }, [])
 

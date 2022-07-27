@@ -6,6 +6,9 @@ import { FaCalculator } from 'react-icons/fa';
 import { BsFillMegaphoneFill } from 'react-icons/bs';
 // eslint-disable-next-line
 import { FaMapMarkedAlt } from 'react-icons/fa';
+import { FaUserCircle } from 'react-icons/fa';
+import { Link } from "react-router-dom";
+
 
 
 export default function Navbar() {
@@ -32,11 +35,11 @@ export default function Navbar() {
 
   return (
     <div id='Navbar' className={`nav ${navClass}`}>
-      <a className='navIcons' href="#HomePage"><AiFillHome className='icons' />Home</a>
-      {/* <a className='navIcons' href="#TrackingPage"><FaMapMarkedAlt className='icons' />Track</a> */}
+      <Link className='navIcons' to="/"><AiFillHome className='icons' />Home</Link>
       <a className='navIcons' href="#TrackingPage"><SiGooglemaps className='icons' />Track</a>
       <a className='navIcons' href="#FarePage"><FaCalculator className='icons' />Calculate Fare</a>
       <a className='navIcons' href="#anouncements"><BsFillMegaphoneFill className='icons' />Anouncements</a>
+      <Link className='navIcons' to="/Login"><FaUserCircle className='icons' />Login/SignUp</Link>
     </div>
   )
 }

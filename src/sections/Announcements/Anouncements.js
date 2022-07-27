@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import './Anouncements.css'
-import imgCity from '../Assets/city0.jpg'
+import imgCity from '../../Assets/city0.jpg'
 
 function Anouncements() {
 
