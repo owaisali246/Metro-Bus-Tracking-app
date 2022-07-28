@@ -20,8 +20,8 @@ function Login() {
 
 
     useEffect(() => {
-        fetch('http://192.168.18.16/php_program/get_user_details.php')
-            // fetch('https://rapidtracking.000webhostapp.com/get_driver_details.php')
+        // fetch('http://192.168.18.16/php_program/get_user_details.php')
+        fetch('https://rapidtracking.000webhostapp.com/get_user_details.php')
             .then(Response => Response.json())
             .then(json => setUserDetails(json));
     }, [])
@@ -51,29 +51,22 @@ function Login() {
             window.alert('You have enterd an invalild password!')
         }
         else if (password === Passwords[(Usernames.indexOf(username))]) {
-
-            // to keep user logged in
             setloggedin(true)
             window.localStorage.setItem('LoggedIn', true)
             window.location.reload();
         }
     }
+
     const handleLogout = () => {
         setloggedin(false)
         window.localStorage.setItem('LoggedIn', false)
-        setUsername('')
-        setPassword('')
     }
-
-
-
 
 
     return (
         <>
             <div style={{ height: '100vh', position: 'relative' }}>
                 <img src={bgImage} className='imagebg' alt="" />
-                {/* <div className='imgCover'></div> */}
                 <div id='LoginDiv'>
                     <div id='LoginDiv2'>
                         <img src={userImg} id='userimg' alt="" />
@@ -94,7 +87,7 @@ function Login() {
                                     <RiDoorLockFill className='LoginIcons' />
                                     <input type="password" placeholder='Enter Password' className='LoginInput' value={password} onChange={handlePassword} />
                                 </div>
-                                <button onClick={handleLogin} className='LoginBtn'><b>LOGIN</b></button>
+                                <button onClick={handleLogin} id='loginbtn' className='LoginBtn'><b>LOGIN</b></button>
                                 <Link to='/SignUp'><button className='LoginBtn'><b>DON'T HAVE AN ACCOUNT?</b></button></Link>
                             </>}
                     </div>

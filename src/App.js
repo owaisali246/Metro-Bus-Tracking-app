@@ -26,16 +26,18 @@ function App() {
             <Anouncements />
             <Footer />
           </>} />
-        <Route exact path='/Login' element={
+        <Route path='/Login' element={
           <>
             <NewNav />
             <Login />
+            <Footer />
           </>
         } />
-        <Route exact path='/SignUp' element={
+        <Route path='/SignUp' element={
           <>
             <NewNav />
             <SignUp />
+            <Footer />
           </>
         } />
       </Routes>

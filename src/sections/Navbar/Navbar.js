@@ -16,9 +16,15 @@ export default function Navbar() {
 
   const [navClass, setNavClass] = useState('nav-color-1')
 
+  window.addEventListener('keypress', (key) => {
+    if (key.key === 'Enter') {
+      console.log('Enter pressed')
+    }
+  })
+
 
   window.addEventListener('scroll', function () {
-    // console.log(window.scrollY)
+    console.log(window.scrollY)
     if (window.scrollY < 64) {
       setNavClass('nav-color-1');
     }

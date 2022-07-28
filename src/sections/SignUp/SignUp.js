@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import bgImage from '../../Assets/city-wallpaper-2.jpg';
 import userImg from '../../Assets/UserImage.png';
 import './SignUp.css'
@@ -8,20 +8,31 @@ import { ImMail4 } from 'react-icons/im';
 import { FaPhoneAlt } from 'react-icons/fa';
 import { FaAdn } from 'react-icons/fa';
 import { RiGovernmentFill } from 'react-icons/ri';
+import { BsFillArrowLeftCircleFill } from 'react-icons/bs';
 import { Link } from "react-router-dom";
 
 
-
-function SignUp(props) {
+function SignUp() {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
-    const [CNIC, setCNIC] = useState()
-    const [mobno, setMobno] = useState()
-
-
+    const [CNIC, setCNIC] = useState('')
+    const [mobile_no, setMobile_no] = useState('')
     const [loggedin, setloggedin] = useState(window.localStorage.getItem('LoggedIn'))
+    const [UserDetails, setUserDetails] = useState([])
+
+    useEffect(() => {
+        // fetch('http://192.168.18.16/php_program/get_user_details.php')
+        fetch('https://rapidtracking.000webhostapp.com/get_user_details.php')
+            .then(Response => Response.json())
+            .then(json => setUserDetails(json));
+    }, [])
+
+    const Usernames = UserDetails.map((user) => user.username);
+    const Emails = UserDetails.map((user) => user.email);
+    const Mob_nos = UserDetails.map((user) => user.mobile_no);
+    const CNICs = UserDetails.map((user) => user.CNIC);
 
     const handleUsername = (event) => {
         event.preventDefault();
@@ -41,7 +52,7 @@ function SignUp(props) {
     }
     const handleMobno = (event) => {
         event.preventDefault();
-        setMobno(event.target.value);
+        setMobile_no(event.target.value);
     }
     const handleCNIC = (event) => {
         event.preventDefault();
@@ -49,15 +60,77 @@ function SignUp(props) {
     }
 
     const handleSignup = (event) => {
-        event.preventDefault();
-        setloggedin(true)
-        window.localStorage.setItem('LoggedIn', true)
-        window.location.reload();
+        if (Usernames.includes(username)) {
+            window.alert('This username is already taken!')
+        }
+        else if (Emails.includes(email)) {
+            window.alert('This email is already taken!')
+        }
+        else if (Mob_nos.includes(mobile_no)) {
+            window.alert('This Mobile nunber is already taken!')
+        }
+        else if (CNICs.includes(CNIC)) {
+            window.alert('This CNIC is already taken!')
+        }
+        else if (name.length > 18) {
+            window.alert('Name is too Long!')
+        }
+        else if (email.length > 34) {
+            window.alert('Email is too Long!')
+        }
+        else if (password.length > 18) {
+            window.alert('Password is too Long!')
+        }
+        else if (username.length > 18) {
+            window.alert('Username is too Long!')
+        }
+        else if (13 > CNIC.length > 13) {
+            window.alert('CNIC is invalid!')
+        }
+        else if (11 > mobile_no.length > 11) {
+            window.alert('Mobile nunber is invalid!')
+        }
+        else {
+            event.preventDefault();
+            send_user_details(name, username, password, email, CNIC, mobile_no)
+            setloggedin(true)
+            window.localStorage.setItem('LoggedIn', true)
+            window.location.reload();
+        }
     }
+
+
     const handleLogout = () => {
         setloggedin(false)
         window.localStorage.setItem('LoggedIn', false)
     }
+
+    function send_user_details(name, username, password, email, CNIC, mobile_no) {
+        // var api = "http://localhost/php_program/send_user_details.php"
+        var api = "https://rapidtracking.000webhostapp.com/send_user_details.php"
+
+        var data = {
+            name: name,
+            username: username,
+            password: password,
+            email: email,
+            CNIC: parseInt(CNIC),
+            mobile_no: parseInt(mobile_no)
+        };
+
+        fetch(api, {
+            method: 'POST',
+            body: JSON.stringify(data)
+        }).catch((error) => {
+            window.alert('Error' + error);
+        })
+    }
+
+    window.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            handleSignup();
+        }
+    })
 
 
 
@@ -66,7 +139,6 @@ function SignUp(props) {
         <div>
             <div style={{ height: '100vh', position: 'relative' }}>
                 <img src={bgImage} className='imagebg' alt="" />
-                {/* <div className='imgCover'></div> */}
                 <div id='SignupDiv'>
                     <img src={userImg} id='userimg' alt="" />
                     <h2 style={{ marginBottom: '2vh' }}><b>SignUp Page</b></h2>
@@ -105,7 +177,7 @@ function SignUp(props) {
                                     <div style={{ display: 'flex', gap: '3vh' }}>
                                         <div>
                                             <FaPhoneAlt className='SignupIcons' style={{ fontSize: "2rem" }} />
-                                            <input type="number" placeholder='Enter MobileNo.' className='SignupInput' value={mobno} onChange={handleMobno} required={true} />
+                                            <input type="number" placeholder='Enter MobileNo.' className='SignupInput' value={mobile_no} onChange={handleMobno} required={true} />
                                         </div>
                                         <div>
                                             <RiGovernmentFill className='SignupIcons' />
@@ -113,7 +185,7 @@ function SignUp(props) {
                                         </div>
                                     </div>
                                     <div style={{ display: 'flex', gap: '3vh' }}>
-                                        <Link to='/Login'><button style={{ marginTop: '2rem' }} className='SignupBtn'><b>Go back to Login</b></button></Link>
+                                        <Link to='/Login'><button style={{ marginTop: '2rem' }} className='SignupBtn'><BsFillArrowLeftCircleFill className='backArrow' /><b>Go back to Login</b></button></Link>
                                         <input style={{ marginTop: '2rem' }} className='SignupBtn' type="submit" value="Register" />
                                     </div>
                                 </form>

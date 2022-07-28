@@ -52,9 +52,16 @@
 
 .SignupIcons {
     position: absolute;
-    color: #03fe86;
+    color: #181A1B;
     font-size: 2rem;
     transform: translate(50%, 45%);
+
+}
+
+.backArrow {
+    color: #181A1B;
+    font-size: 1.5rem;
+    margin-right: 0.5rem;
 
 }
 
