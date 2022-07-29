@@ -1,11 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Navbar.css';
 import { AiFillHome } from 'react-icons/ai';
 import { SiGooglemaps } from 'react-icons/si';
 import { FaCalculator } from 'react-icons/fa';
 import { BsFillMegaphoneFill } from 'react-icons/bs';
-// eslint-disable-next-line
-import { FaMapMarkedAlt } from 'react-icons/fa';
 import { FaUserCircle } from 'react-icons/fa';
 import { Link } from "react-router-dom";
 
@@ -14,27 +12,34 @@ import { Link } from "react-router-dom";
 export default function Navbar() {
 
 
-  const [navClass, setNavClass] = useState('nav-color-1')
+  const [navClass, setNavClass] = useState('nav-color-1');
+  const [windowSize, setWindowSize] = useState(getWindowSize());
 
-  window.addEventListener('keypress', (key) => {
-    if (key.key === 'Enter') {
-      console.log('Enter pressed')
+  useEffect(() => {
+    function handleWindowResize() {
+      setWindowSize(getWindowSize());
     }
-  })
+    window.addEventListener('resize', handleWindowResize);
+    return () => {
+      window.removeEventListener('resize', handleWindowResize);
+    };
+  }, []);
 
+  const height = windowSize.innerHeight;
+
+  function getWindowSize() {
+    const { innerWidth, innerHeight } = window;
+    return { innerWidth, innerHeight };
+  }
 
   window.addEventListener('scroll', function () {
-    console.log(window.scrollY)
-    if (window.scrollY < 64) {
+    if (window.scrollY < (0.06 * height)) {
       setNavClass('nav-color-1');
     }
-    else if (window.scrollY > 64 && window.scrollY < 1145) {
+    else if (window.scrollY > (0.06 * height) && window.scrollY < (3 * height)) {
       setNavClass('nav-color-2');
     }
-    else if (window.scrollY > 1145 && window.scrollY < 1350) {
-      setNavClass('nav-color-1');
-    }
-    else if (window.scrollY > 1350) {
+    else if (window.scrollY > (3 * height)) {
       setNavClass('nav-color-1');
     }
   })

@@ -11,7 +11,6 @@ import SignUp from './sections/SignUp/SignUp';
 import NewNav from './sections/NewNav/NewNav';
 import { Routes, Route } from "react-router-dom";
 
-
 function App() {
 
   return (
@@ -24,8 +23,7 @@ function App() {
             <TrackingPage />
             <FarePage />
             <Anouncements />
-            <Footer />
-          </>} />
+            <Footer /> </>} />
         <Route path='/Login' element={
           <>
             <NewNav />
